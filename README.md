@@ -1,8 +1,8 @@
 # REALTIME CHAT APPLICATION
 
-Bu proje, kullanıcıların birbirleriyle gerçek zamanlı olarak iletişim kurmalarını sağlayan basit bir mesajlaşma uygulamasıdır. Kullanıcılar, bir sunucu üzerinde çalışan uygulamaya bağlanarak anlık mesajlar gönderebilir ve alabilirler ki bu sunucu kendi localhostunuztur(deploy etmediğiniz sürece). Uygulama, kullanıcıların kolayca birbirleriyle iletişim kurmalarını sağlamak için socket programlama kullanılarak geliştirilmiştir. Temel amacı, kullanıcıların anlık ileti alışverişi yapabilmesini sağlamaktır.Frontend kısmı için tailwind ve react,backend için express ve socket.io kullanılmıştır.
+This project is a simple messaging application that enables users to communicate with each other in real-time. Users can send and receive instant messages by connecting to a server-side application, which is typically hosted on their own localhost (unless deployed elsewhere). The application is developed using socket programming to facilitate easy communication between users. Its primary goal is to facilitate real-time message exchange between users. The frontend is built using Tailwind CSS and React, while the backend utilizes Express.js and Socket.io.
 
-#PROJECT MATERIALS
+# PROJECT MATERIALS
 
 **FRONTEND** -> [@React](https://reactjs.org/) and [@Tailwind](https://tailwindcss.com/)
 
@@ -12,12 +12,12 @@ Bu proje, kullanıcıların birbirleriyle gerçek zamanlı olarak iletişim kurm
 
 # PROJECT DETAILS
 
-Proje dosyalarında Client ve Server adında iki adet dosya bulunmaktadır.Server kısmında projenin backend kodlamaları,Client kısmında ise frontend kodları bulunmaktadır.Frontend kısmında iki adet komponent bulunmaktadır bir tanesi login sayfası diğeri chat sayfasını oluşturmaktadır.Kullanıcıdan aldığım form değişkenlerini birden fazla komponent'de kullandığım için global olarak tanımladım ve bunu context ile yaptım ve socket programlamayı kullanacağım için socket.io-client kütüphanesini indirdim ve bağlantı oluşturdum bu yaptıklarımı backend tarafında karşılamak için socket.io kütüphanesini indirdim gerekli configürasyonları ayarladıktan sonra birbirleri ile iletişime geçmeleri için her iki tarafında(frontend ve backend) ilgili url kısmlarını belirlerdim zaten projelerim localhostum'da çalışmakta dolayısıyla bir tanesi 5173 diğer 3000 portunda çalışmakta bundan dolayı bağlantıyı kurmak tabi ki zor olmadı 
+In the project files, there are two folders named Client and Server. The Server folder contains the backend code of the project, while the Client folder contains the frontend code. In the frontend section, there are two components: one for the login page and the other for the chat page. Since I use form variables obtained from the user in multiple components, I defined them globally and used context for this purpose. Additionally, I installed the 'socket.io-client' library and established a connection because I will use socket programming. To accommodate this on the backend side, I downloaded the 'socket.io' library and configured it accordingly. After setting up the necessary configurations, I determined the relevant URL parts for both frontend and backend to communicate with each other. Since my projects are running on my localhost, one of them operates on port 5173 and the other on port 3000. Therefore, establishing the connection was not difficult.
 
-Frontend kısmında login sayfamda kullanıcıdan bir username ve roomId istemekteyim bunun amacı socket ile bağlanacak kişilerin aynı odaya bağlanmasını sağlamak yani aynı soket üzerinden iletişime geçmelerini sağlamak ve aldığım bu bilgileri global state değerlerime attıktan sonra backend tarafına gönderdim,backend tarafında bu bilgiler ve bu socket bağlantısı socket.on fonksiyonu ile dinlenmekte ve gerekli response dönderilmektedir
+In the frontend section, on my login page, I request the user to provide a username and a roomId. The purpose of this is to ensure that users connecting via socket join the same room, enabling them to communicate over the same socket. After receiving this information, I store it in global state values and then send it to the backend. On the backend side, this information and the socket connection are listened to using the 'socket.on' function, and the necessary responses are returned
 
-#Alınan cevap nasıl karşıdaki kullanıcıya yönlendiriliyor ?
+# How is the received response directed to the user on the other end ?
 
-Tabiki de frontend kısmından alınan roomId ile bağlantı kurulmakta ve backend kısmında bu roomdId'ye bağlanan kişilere cevap göndermek için socket.to() fonksiyonu kullanılmaktadır
+Of course, a connection is established using the roomId received from the frontend section, and on the backend side, the 'socket.to()
 
-Basit ve kabaca projenin özeti bu şekilde...
+In summary, this is a simple and brief overview of the project...
