@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaUserCircle } from "react-icons/fa"
 import { MdSend } from "react-icons/md"
 import { useFormElements } from "../context/FormContext"
+
 const Chat = ({ socket }) => {
   const { userName, roomId } = useFormElements()
   const [currentMessage, setCurrentMessage] = useState("")
@@ -31,14 +32,14 @@ const Chat = ({ socket }) => {
     })
 
   }, [socket])
-
+  console.log(messageList);
   return (
     <div className='w-1/3 h-[500px] flex flex-col '>
       <div className='bg-indigo-950 h-14 text-white flex items-center rounded-tl-md rounded-tr-md'>
         <div className='w-11 h-11 rounded-full bg-white ml-3 text-black'>
           <FaUserCircle className='w-11 h-11 text-purple-900' />
         </div>
-        <span className='poppins-light  ml-3'>Abdulkadir</span>
+        <span className='poppins-light  ml-3'>{userName}</span>
       </div>
       <div className='flex-1 bg-transparent backdrop-blur-lg overflow-y-auto p-2'>
 
